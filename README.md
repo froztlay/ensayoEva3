@@ -1,108 +1,55 @@
-# ✈️ Registro de Equipaje - VuelosChile
+Registro de Equipaje - VuelosChile ✈️ Este es un script de Python diseñado para automatizar y validar el proceso de registro de equipaje para la aerolínea VuelosChile. El sistema permite clasificar las maletas de forma eficiente entre cabina y bodega basándose en reglas de peso y validación de tickets.
 
-¡Bienvenido al sistema automatizado de gestión y manifiesto de carga de **VuelosChile**! Este es un script interactivo desarrollado en Python diseñado para registrar, validar y clasificar el equipaje de los pasajeros antes del despegue, asegurando que se cumplan las normativas de seguridad y peso.
+🚀 Funcionalidades Validación de Entrada: Asegura que la cantidad de equipajes y el peso sean valores numéricos positivos.
 
-## 📋 Características del Proyecto
+Seguridad de Ticket: Verifica que el código del ticket sea válido (mínimo 5 caracteres y sin espacios en blanco).
 
-El programa realiza el flujo completo de control de carga a través de la terminal mediante cuatro etapas clave:
+Clasificación Automática: * 🧳 Cabina: Equipajes con un peso menor o igual a 10 kg.
 
-1. **Validación de Inventario:** Controla que el número total de maletas a registrar sea un número entero positivo.
-2. **Validación del Ticket:** Verifica que el código de pasaje cumpla con las condiciones de seguridad (mínimo 5 caracteres y sin espacios intermedios).
-3. **Control de Pesaje Riguroso:** Filtra entradas erróneas o strings, aceptando solo pesos válidos.
-4. **Clasificación Automática:** Distribuye el equipaje según su peso:
-   * **🧳 Equipaje de Cabina:** Menor o igual a 10 KG.
-   * **📦 Equipaje de Bodega:** Mayor a 10 KG.
+📦 Bodega: Equipajes con un peso superior a 10 kg.
 
----
+Resumen de Carga: Genera un manifiesto final con el conteo total por categoría.
 
-## 🛠️ Tecnologías Utilizadas
+🛠️ Requisitos Python 3.x instalado en tu sistema.
 
-* **Lenguaje:** Python 3.x
-* **Conceptos aplicados:** Bucles condicionales (`while`, `for`), manejo de excepciones (`try-except`), manipulación y validación de strings.
+📦 Instalación y Uso Clona este repositorio:
 
----
+Bash git clone https://github.com/tu-usuario/vueloschile-registro.git Navega al directorio del proyecto:
 
-## 🚀 Código Fuente Corrido y Optimizado
+Bash cd vueloschile-registro Ejecuta el script:
 
-A continuación se presenta el código fuente con la lógica de bloques e indentación corregida para su correcta ejecución:
+Bash python nombre_del_archivo.py 📝 Ejemplo de Flujo Al ejecutar el programa, el flujo de interacción será el siguiente:
 
-```python
-print("=== REGISTRO DE EQUIPAJE - VUELOSCHILE ===")
+El sistema solicita el total de maletas a procesar.
 
-# 1.- Validar la cantidad total de equipaje a registrar
-total_equipaje = 0
-while total_equipaje <= 0:
-    try:
-        entrada = input("¿Cuántos equipajes desea registrar?: ")
-        total_equipaje = int(entrada)
-        if total_equipaje <= 0:
-            print("¡Cantidad inválida! Ingresa un entero positivo para continuar.")
-    except ValueError:
-        print("¡Cantidad inválida! Ingresa un entero positivo para continuar.")
+Por cada maleta, se pide:
 
-# Inicialización de contadores 
-equipajes_cabina = 0
-equipajes_bodega = 0
+Código de ticket: Debe ser mayor a 5 caracteres (ej. TK12345).
 
-# 2.- Ciclo de registro del equipaje
-for i in range(total_equipaje):
-    print(f"\n--- Registro del equipaje N° {i+1} ---")
-    
-    # Validación del código del ticket
-    codigo_ticket = ""
-    while True:
-        codigo_ticket = input("Ingrese código de ticket (Min 5 caracteres, sin espacios): ")
-        if len(codigo_ticket) < 5:
-            print("¡Error! El código debe tener al menos 5 caracteres.")
-            continue
-        
-        # Validar que no tenga espacios
-        tiene_espacios = False
-        for caracter in codigo_ticket:
-            if caracter == " ":
-                tiene_espacios = True
-                break
-        
-        if tiene_espacios:
-            print("¡Error! El código no debe incluir espacios.")
-            continue
-        break
+Peso (KG): Valor entero positivo.
 
-    # Validación del peso
-    peso = -1
-    while peso <= 0:
-        try:
-            entrada_peso = input("Ingrese el peso del equipaje en KG (entero positivo): ")
-            peso =# ensayoEva3
-Ensayo para evaluacion de fundamentos de programacion 
-Plaintext
-=== REGISTRO DE EQUIPAJE - VUELOSCHILE ===
-¿Cuántos equipajes desea registrar?: 2
+El sistema indica en tiempo real la clasificación.
 
---- Registro del equipaje N° 1 ---
-Ingrese código de ticket (Min 5 caracteres, sin espacios): VCH12
-Ingrese el peso del equipaje en KG (entero positivo): 8
-👉 Clasificado como: EQUIPAJE DE CABINA
+Al finalizar, se muestra el Manifiesto de Carga con los totales.
 
---- Registro del equipaje N° 2 ---
-Ingrese código de ticket (Min 5 caracteres, sin espacios): AA 998
-¡Error! El código no debe incluir espacios.
-Ingrese código de ticket (Min 5 caracteres, sin espacios): VCH999
-Ingrese el peso del equipaje en KG (entero positivo): 23
-👉 Clasificado como: EQUIPAJE DE BODEGA
+💻 Estructura del Código El script utiliza conceptos fundamentales de programación:
 
-=======================================================
-¡El avión transportará 1 equipajes en Cabina y 1 equipajes en Bodega!
-¡Manifiesto de carga listo para el despegue! 🛫
-=======================================================
-🔧 Cómo Ejecutarlo
-Asegúrate de tener instalado Python.
+Ciclos while: Para validaciones de datos persistentes.
 
-Clona este repositorio o descarga el archivo .py.
+Manejo de Excepciones (try-except): Para evitar errores críticos al ingresar texto en campos numéricos.
 
-Abre tu terminal o CMD en la carpeta del archivo.
+Estructuras Condicionales: Para la lógica de negocio (clasificación de peso).
 
-Ejecuta el comando:
+🤝 Contribuciones ¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar la validación o añadir nuevas categorías de equipaje:
 
-Bash
-   python registro_equipaje.py
+Haz un Fork del proyecto.
+
+Crea una rama para tu mejora (git checkout -b feature/NuevaMejora).
+
+Haz un Commit de tus cambios (git commit -m 'Añade nueva funcionalidad').
+
+Haz un Push a la rama (git push origin feature/NuevaMejora).
+
+Abre un Pull Request.
+
+Desarrollado para fines académicos y de gestión logística en VuelosChile.
