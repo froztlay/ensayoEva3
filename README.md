@@ -75,3 +75,34 @@ for i in range(total_equipaje):
             entrada_peso = input("Ingrese el peso del equipaje en KG (entero positivo): ")
             peso =# ensayoEva3
 Ensayo para evaluacion de fundamentos de programacion 
+Plaintext
+=== REGISTRO DE EQUIPAJE - VUELOSCHILE ===
+¿Cuántos equipajes desea registrar?: 2
+
+--- Registro del equipaje N° 1 ---
+Ingrese código de ticket (Min 5 caracteres, sin espacios): VCH12
+Ingrese el peso del equipaje en KG (entero positivo): 8
+👉 Clasificado como: EQUIPAJE DE CABINA
+
+--- Registro del equipaje N° 2 ---
+Ingrese código de ticket (Min 5 caracteres, sin espacios): AA 998
+¡Error! El código no debe incluir espacios.
+Ingrese código de ticket (Min 5 caracteres, sin espacios): VCH999
+Ingrese el peso del equipaje en KG (entero positivo): 23
+👉 Clasificado como: EQUIPAJE DE BODEGA
+
+=======================================================
+¡El avión transportará 1 equipajes en Cabina y 1 equipajes en Bodega!
+¡Manifiesto de carga listo para el despegue! 🛫
+=======================================================
+🔧 Cómo Ejecutarlo
+Asegúrate de tener instalado Python.
+
+Clona este repositorio o descarga el archivo .py.
+
+Abre tu terminal o CMD en la carpeta del archivo.
+
+Ejecuta el comando:
+
+Bash
+   python registro_equipaje.py
